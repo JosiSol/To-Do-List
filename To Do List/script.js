@@ -37,3 +37,7 @@ taskList.addEventListener("click", function(event){
         event.target.parentElement.remove();
     }
 });
+
+document.getElementById("form").addEventListener('submit', function(event){
+    event.preventDefault();
+})
