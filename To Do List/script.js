@@ -10,9 +10,10 @@ const addTask = () => {
         li.innerHTML = inputBox.value;
         taskList.appendChild(li);
 
-        const editBtn = document.createElement("button");
-        editBtn.innerHTML = "Edit";
-        li.appendChild(editBtn);
+        const edit = document.createElement("span");
+        edit.className = "edit";
+        edit.innerHTML = "\u270E";
+        li.appendChild(edit);
         
         const span = document.createElement("span");
         span.innerHTML = "\u00d7";
@@ -25,14 +26,14 @@ taskList.addEventListener("click", function(event){
     if (event.target.tagName === "LI"){
         event.target.classList.toggle("checked");
     }
-    else if (event.target.tagName === "BUTTON"){
+    else if (event.target.innerHTML === "\u270E"){
         const li = event.target.parentElement;
         const newText = prompt("Edit your task:", li.firstChild.textContent);
         if (newText !== "") {
             li.firstChild.textContent = newText;
         }
     }
-    else if (event.target.tagName === "SPAN"){
+    else if (event.target.innerHTML === "\u00d7"){
         event.target.parentElement.remove();
     }
 });
